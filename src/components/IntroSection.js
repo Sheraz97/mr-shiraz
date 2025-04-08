@@ -56,7 +56,7 @@ const PersonalIntroduction = () => {
 
                     {/* Animated title */}
                     <motion.h2
-                        className="text-2xl md:text-3xl font-semibold text-gray-700 mb-8 relative"
+                        className="text-2xl md:text-3xl font-semibold text-gray-700 mb-2 relative"
                         initial={{ opacity: 0 }}
                         animate={inView ? { opacity: 1 } : {}}
                         transition={{ delay: 0.6, duration: 0.6 }}
@@ -82,10 +82,6 @@ const PersonalIntroduction = () => {
                         transition={{ delay: 0.8, duration: 0.6 }}
                     >
                         A Full Stack Developer having 7+ years of experience
-                        <br />
-                        <br />
-
-                        Substantial experience in developing and deployment of hybrid mobile apps.
                         <br />
                         <br />
 
