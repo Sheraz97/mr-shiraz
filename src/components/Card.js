@@ -22,8 +22,18 @@ function Card(props) {
         })
     };
     const variantsBackCard = {
-        initial: { scale: 0, y: 105, opacity: 0 },
-        animate: { scale: 0.75, y: 30, opacity: 1 }
+        initial: {
+            scale: 0,
+            x: 0,
+            y: 0,
+            opacity: 0
+        },
+        animate: {
+            scale: 1,
+            x: 10,
+            y: -30,
+            opacity: 1
+        }
     };
 
     function handleDragEnd(_, info) {
