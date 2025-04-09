@@ -3,6 +3,8 @@ import { motion, useMotionValue, useTransform } from "framer-motion";
 
 function Card(props) {
     const [exitX, setExitX] = useState(0);
+    const width = 450;
+    const height = 350;
 
     const x = useMotionValue(0);
     const scale = useTransform(x, [-150, 0, 150], [0.5, 1, 0.5]);
@@ -21,7 +23,7 @@ function Card(props) {
     };
     const variantsBackCard = {
         initial: { scale: 0, y: 105, opacity: 0 },
-        animate: { scale: 0.75, y: 30, opacity: 0.5 }
+        animate: { scale: 0.75, y: 30, opacity: 1 }
     };
 
     function handleDragEnd(_, info) {
@@ -38,8 +40,8 @@ function Card(props) {
     return (
         <motion.div
             style={{
-                width: 150,
-                height: 150,
+                width,
+                height,
                 position: "absolute",
                 top: 0,
                 x,
@@ -63,16 +65,6 @@ function Card(props) {
                     : { scale: { duration: 0.2 }, opacity: { duration: 0.4 } }
             }
         >
-            <motion.div
-                style={{
-                    width: 150,
-                    height: 150,
-                    backgroundColor: "#fff",
-                    borderRadius: 30,
-                    scale,
-                }}
-                className="shadow-[0_3px_3px_rgba(0,0,0,0.3)]"
-            />
             {props.children}
         </motion.div>
     );
