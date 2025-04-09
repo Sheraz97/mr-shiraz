@@ -70,7 +70,7 @@ const PersonalIntroduction = () => {
                                 animate={inView ? { width: '100%' } : {}}
                                 transition={{ delay: 0.8, duration: 1, ease: "easeOut" }}
                             />
-                            Full Stack Developer
+                            Full Stack Developer (7+ Years)
                         </motion.span>
                     </motion.h2>
 
@@ -81,12 +81,10 @@ const PersonalIntroduction = () => {
                         animate={inView ? { opacity: 1 } : {}}
                         transition={{ delay: 0.8, duration: 0.6 }}
                     >
-                        A Full Stack Developer having 7+ years of experience
-                        <br />
-                        <br />
-
                         I craft immersive digital experiences with a focus on beautiful interfaces,
                         smooth animations, and clean code.
+                        <br />
+                        <br />
                         Currently creating magic at{' '}
                         <motion.span className="inline-flex items-center gap-2">
                             <motion.div

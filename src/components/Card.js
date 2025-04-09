@@ -73,6 +73,7 @@ function Card(props) {
                 }}
                 className="shadow-[0_3px_3px_rgba(0,0,0,0.3)]"
             />
+            {props.children}
         </motion.div>
     );
 }
