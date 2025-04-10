@@ -2,15 +2,15 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import ss1 from '../../public/1.png';
-import ss2 from '../../public/2.png';
-import ss3 from '../../public/3.png';
-import ss4 from '../../public/4.png';
-import ss5 from '../../public/5.png';
-import ss6 from '../../public/6.png';
-import ss7 from '../../public/7.png';
-import ss8 from '../../public/8.png';
-import ss9 from '../../public/9.png';
+import ss1 from '../../assets/1.png';
+import ss2 from '../../assets/2.png';
+import ss3 from '../../assets/3.png';
+import ss4 from '../../assets/4.png';
+import ss5 from '../../assets/5.png';
+import ss6 from '../../assets/6.png';
+import ss7 from '../../assets/7.png';
+import ss8 from '../../assets/8.png';
+import ss9 from '../../assets/9.png';
 
 const Portfolio = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
