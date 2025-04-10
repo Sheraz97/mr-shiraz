@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from 'react';
 import AnimatedText from '@/components/AnimatedText';
 import IntroSection from './IntroSection';
 import Portfolio from './Portfolio';
+import ContactMe from './ContactMe';
 
 const InfiniteScroll = () => {
     const scrollContainerRef = useRef(null);
@@ -68,7 +69,7 @@ const InfiniteScroll = () => {
                                     <Portfolio />
                                     :
                                     i == 2 ?
-                                        <AnimatedText />
+                                        <ContactMe />
                                         :
                                         null
                         }

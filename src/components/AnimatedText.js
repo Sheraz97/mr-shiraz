@@ -43,22 +43,6 @@ export default function AnimatedText() {
                 >
                     Stay tuned for more!
                 </motion.h1>
-
-                {/* <motion.p
-                    variants={item}
-                    className="text-xl mb-8"
-                >
-                    Smooth animations made easy
-                </motion.p> */}
-
-                {/* <motion.button
-                    variants={item}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="px-6 py-3 bg-blue-600 text-white rounded-lg"
-                >
-                    Click Me
-                </motion.button> */}
             </motion.div>
         </div>
     );
