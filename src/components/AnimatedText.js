@@ -7,7 +7,7 @@ const item = {
 
 export default function AnimatedText() {
     return (
-        <div>
+        <div className='min-h-screen min-w-screen flex items-center justify-center'>
             {/* <motion.div
                 initial={{ opacity: 1 }}
                 animate={{ opacity: 0 }}
