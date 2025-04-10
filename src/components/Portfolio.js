@@ -1,20 +1,105 @@
-'use client'
+import { useState, useEffect } from 'react';
+import Head from 'next/head';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
-import { motion } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
-import Image from 'next/image'
-
-const PersonalIntroduction = () => {
+const Portfolio = () => {
+    const [currentIndex, setCurrentIndex] = useState(0);
     const [ref, inView] = useInView({
         triggerOnce: false,
         threshold: 0.1,
-    })
+    });
+
+    // Your app screenshots - replace with your actual images
+    const screenshots = [
+        '/1.png',
+        '/2.png',
+        '/3.png',
+        '/4.png',
+        '/5.png',
+        '/6.png',
+        '/7.png',
+        '/8.png',
+        '/9.png',
+    ];
+
+    // Auto-rotate screenshots every 2 seconds
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentIndex((prevIndex) =>
+                (prevIndex + 1) % screenshots.length
+            );
+        }, 2000);
+
+        return () => clearInterval(interval);
+    }, []);
 
     return (
-        <div
-            className="relative min-h-screen w-full overflow-hidden bg-white flex items-center justify-center p-8"
-            ref={ref}
-        >
+        <div className="flex items-center justify-center flex-col" ref={ref}>
+            <div className="w-screen flex justify-center">
+                <div className='mt-4 relative'
+                    style={{
+                        height: 'max-content',
+                        width: 250,
+                        height: 520,
+                    }}>
+
+                    {screenshots.map((screenshot, index) => (
+                        <Image
+                            key={index}
+                            src={screenshot}
+                            alt={`App screenshot ${index + 1}`}
+                            width={250}
+                            height={520}
+                            className={`
+                                inset-0
+                                object-cover 
+                                transition-opacity 
+                                duration-1000 
+                                ${currentIndex === index ? 'opacity-100' : 'opacity-0'}
+                                `}
+                            style={{
+                                position: 'absolute',
+                                top: 9,
+                                left: 9,
+                                width: 233,
+                                height: 503,
+                                borderRadius: 30
+                            }}
+                        />
+                    ))}
+
+                    <Image
+                        src="/iphone-frame.png"
+                        alt="iPhone frame"
+                        width={250}
+                        height={0}
+                        style={{
+                            position: 'absolute'
+                        }}
+                    />
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             {/* Main content container */}
             <div className="relative z-10 max-w-6xl w-full px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-12">
                 {/* Text content */}
@@ -107,73 +192,6 @@ const PersonalIntroduction = () => {
                         </motion.span>
                     </motion.div>
                 </motion.div>
-
-                {/* Floating profile picture - Fixed dimensions */}
-                <motion.div
-                    className="md:w-1/2 flex justify-center"
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={inView ? {
-                        opacity: 1,
-                        scale: 1,
-                        y: [0, -15, 0],
-                    } : {}}
-                    transition={{
-                        opacity: { delay: 0.5, duration: 0.6 },
-                        scale: { delay: 0.5, duration: 0.6 },
-                        y: {
-                            duration: 6,
-                            repeat: Infinity,
-                            ease: "easeInOut"
-                        }
-                    }}
-                >
-                    <div className="relative w-[300px] h-[300px]"> {/* Fixed dimensions */}
-                        <motion.div
-                            className="absolute inset-0 rounded-full bg-blue-100 blur-xl opacity-50"
-                            animate={{
-                                scale: [1, 1.05, 1],
-                                opacity: [0.5, 0.7, 0.5]
-                            }}
-                            transition={{
-                                duration: 6,
-                                repeat: Infinity,
-                                ease: "easeInOut",
-                                delay: 0.5
-                            }}
-                        />
-                        <motion.div
-                            className="relative w-full h-full rounded-full overflow-hidden shadow-2xl"
-                            style={{
-                                boxShadow: '0 25px 50px -12px rgba(59, 130, 246, 0.25)'
-                            }}
-                            animate={{
-                                y: [0, -10, 0],
-                                rotate: [0, 1, -1, 0],
-                            }}
-                            transition={{
-                                y: {
-                                    duration: 6,
-                                    repeat: Infinity,
-                                    ease: "easeInOut"
-                                },
-                                rotate: {
-                                    duration: 8,
-                                    repeat: Infinity,
-                                    ease: "easeInOut"
-                                }
-                            }}
-                        >
-                            <Image
-                                src="/shiraz-ahmed-2.jpg"
-                                alt="Profile Picture"
-                                width={300}
-                                height={300}
-                                className="w-full h-full object-cover"
-                                priority
-                            />
-                        </motion.div>
-                    </div>
-                </motion.div>
             </div>
 
             {/* Decorative background elements */}
@@ -184,7 +202,7 @@ const PersonalIntroduction = () => {
                 transition={{ delay: 1.2, duration: 1, ease: "easeOut" }}
             />
         </div>
-    )
-}
+    );
+};
 
-export default PersonalIntroduction
+export default Portfolio;

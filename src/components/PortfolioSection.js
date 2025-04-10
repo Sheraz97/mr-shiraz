@@ -5,6 +5,8 @@ import { useInView } from 'react-intersection-observer'
 import Image from 'next/image'
 import localFont from 'next/font/local'
 import { AnimateCard } from './AnimateCard'
+import { useState } from 'react'
+import ShowProjects from './ViewProjectsModal'
 
 // Load ATF Book font
 const atfBook = localFont({
@@ -14,6 +16,7 @@ const atfBook = localFont({
 })
 
 const CompactProjectPortfolio = () => {
+  // const [showAll, setShowAll] = useState(false);
   const [ref, inView] = useInView({
     triggerOnce: false,
     threshold: 0.1,
@@ -100,11 +103,15 @@ const CompactProjectPortfolio = () => {
             className="inline-flex items-center px-[2.5vw] py-[1vh] border border-gray-300 rounded-lg font-medium text-gray-700 hover:bg-gray-50 text-[1.4vw]"
             whileHover={{ y: -1 }}
             whileTap={{ scale: 0.98 }}
+            onClick={() => setShowAll(true)}
           >
             View All
           </motion.a>
         </motion.div>
       </div>
+
+      {/* Modal */}
+      {/* <ShowProjects showAll={showAll} setShowAll={setShowAll} /> */}
     </div>
   )
 }

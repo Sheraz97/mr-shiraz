@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from 'react';
 import AnimatedText from '@/components/AnimatedText';
 import IntroSection from './IntroSection';
 import ProjectsPortfolio from './PortfolioSection';
+import Portfolio from './Portfolio';
 
 const InfiniteScroll = ({ speed = 20 }) => {
     const scrollContainerRef = useRef(null);
@@ -49,7 +50,7 @@ const InfiniteScroll = ({ speed = 20 }) => {
     }, [speed]);
 
     return (
-        <div className="w-screen h-screen overflow-hidden no-scrollbar">
+        <div className="w-screen h-screen overflow-hidden no-scrollbar bg-white">
             <div
                 ref={scrollContainerRef}
                 className="flex h-full overflow-x-auto overflow-y-hidden scroll-smooth snap-x snap-mandatory no-scrollbar"
@@ -57,19 +58,19 @@ const InfiniteScroll = ({ speed = 20 }) => {
                 {[...Array(3)].map((_, i) => (
                     <div
                         key={i}
-                        className="snap-start min-w-screen h-full flex items-center justify-center text-white text-4xl bg-gradient-to-r from-white to-blue-500 shadow-lg"
+                        className="snap-start min-w-screen h-full flex items-center justify-center text-4xl shadow-lg"
                     >
                         {
-                        i === 0 ? 
-                        <IntroSection /> 
-                        : 
-                        i === 1 ?
-                        <ProjectsPortfolio />
-                        :
-                        i == 2 ?
-                        <AnimatedText />
-                        : 
-                        null
+                            i === 0 ?
+                                <IntroSection />
+                                :
+                                i === 1 ?
+                                    <Portfolio />
+                                    :
+                                    i == 2 ?
+                                        <AnimatedText />
+                                        :
+                                        null
                         }
                     </div>
                 ))}
