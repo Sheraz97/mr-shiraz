@@ -3,13 +3,13 @@
 import React, { useEffect, useRef } from 'react';
 import AnimatedText from '@/components/AnimatedText';
 import IntroSection from './IntroSection';
-import ProjectsPortfolio from './PortfolioSection';
 import Portfolio from './Portfolio';
 
-const InfiniteScroll = ({ speed = 20 }) => {
+const InfiniteScroll = () => {
     const scrollContainerRef = useRef(null);
     const touchStartX = useRef(0);
     const touchStartY = useRef(0);
+    const speed = 20; // Adjust this value to change the scroll speed
 
     useEffect(() => {
         const container = scrollContainerRef.current;
@@ -31,7 +31,7 @@ const InfiniteScroll = ({ speed = 20 }) => {
 
             // Use vertical swipe for horizontal scrolling on mobile
             const deltaY = touchY - touchStartY.current;
-            container.scrollLeft -= deltaY * speed * 2; // Multiply by 2 for better sensitivity
+            container.scrollLeft -= deltaY * speed; // Multiply by 2 for better sensitivity
 
             // Update touch positions for continuous tracking
             touchStartX.current = touchX;
@@ -47,7 +47,7 @@ const InfiniteScroll = ({ speed = 20 }) => {
             container.removeEventListener('touchstart', onTouchStart);
             container.removeEventListener('touchmove', onTouchMove);
         };
-    }, [speed]);
+    }, []);
 
     return (
         <div className="w-screen h-screen overflow-hidden no-scrollbar bg-white">
