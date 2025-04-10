@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useEffect, useRef } from 'react';
-import AnimatedText from '@/components/AnimatedText';
 import IntroSection from './IntroSection';
 import Portfolio from './Portfolio';
 import ContactMe from './ContactMe';

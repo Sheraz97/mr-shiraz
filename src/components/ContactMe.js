@@ -45,13 +45,6 @@ const ContactMe = () => {
 
     const handleDownloadCV = () => {
         window.open('/shiraz-ahmed.pdf', '_blank');
-
-        // const link = document.createElement('a');
-        // link.href = cvPdf;
-        // link.download = 'Shiraz-Ahmed-CV.pdf';
-        // document.body.appendChild(link);
-        // link.click();
-        // document.body.removeChild(link);
     };
 
     const buttonVariants = {
